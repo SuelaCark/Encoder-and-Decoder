@@ -8,5 +8,5 @@
 
 from cipher import Cipher
 
-class Monoalphabetic_Cipher(Cipher):
+class MonoalphabeticCipher(Cipher):
     ...

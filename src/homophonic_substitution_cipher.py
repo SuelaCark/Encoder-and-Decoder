@@ -8,5 +8,5 @@
 
 from cipher import Cipher
 
-class Homophonic_Substitution_Cipher(Cipher):
+class HomophonicSubstitutionCipher(Cipher):
     ...

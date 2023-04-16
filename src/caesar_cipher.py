@@ -8,5 +8,5 @@
 
 from cipher import Cipher
 
-class Caesar_Cipher(Cipher):
+class CaesarCipher(Cipher):
     ...
