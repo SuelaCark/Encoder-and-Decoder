@@ -18,4 +18,4 @@ class TestCaesarCipher(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    # test_caesar_enctypt()
+    # test_caesar_encrypt()
