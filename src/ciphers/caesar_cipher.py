@@ -5,18 +5,17 @@
 
 """
 
-
 from cipher import Cipher
 
 
 class CaesarCipher(Cipher):
-    def __init__(self, key, shift):
-        super().__init__(key, shift)  # this invokes the parent initializer
+    def __init__(self, shift):
+        super().__init__(shift)  # this invokes the parent initializer
 
     # For now, the encrypt func only encrypts text
     # Might be able to expand it to also include numbers with shifting
     # for a better encryption of the text
-    def encrypt(self, text):
+    def encrypt(self, text, key=0):
         encrypted_text = ""
         # transverse the plain text
         for char in text:

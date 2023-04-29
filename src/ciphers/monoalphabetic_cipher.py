@@ -6,14 +6,14 @@
 """
 
 
-from cipher import Cipher
+from src.ciphers.cipher import Cipher
 
 
 class MonoalphabeticCipher(Cipher):
-    def encrypt(self, plain_text, shift):
+    def encrypt(self, plain_text):
         pass
 
-    def decrypt(self):
+    def decrypt(self, text):
         pass
 
     ...

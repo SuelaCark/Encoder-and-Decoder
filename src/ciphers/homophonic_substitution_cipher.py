@@ -6,7 +6,7 @@
 """
 
 
-from cipher import Cipher
+from src.ciphers.cipher import Cipher
 
 
 class HomophonicSubstitutionCipher(Cipher):
