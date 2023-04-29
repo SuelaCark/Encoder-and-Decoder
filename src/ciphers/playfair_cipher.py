@@ -19,32 +19,33 @@ class PlayfairCipher(Cipher):
 
         plaintext = ""
         # Remove non alphabetic chars from the text
-        for char in text:
-            if char.isalpha():
-                plaintext += char
-            print(plaintext)
+        plaintext = ''.join(filter(str.isalpha, plaintext)).upper()
 
-        # Remove non-letter chars from the key
-        key = ''.join(filter(str.isalpha, key)).upper()
+        # for char in text:
+        #     if char.isalpha():
+        #         plaintext += char
+        #     print(plaintext)
 
         # Checks if the text is even or odd, if odd adds Z in the end of the text
         if len(plaintext) % 2 == 1:
             plaintext += 'Z'
             print(plaintext)
 
+        # Remove non-letter chars from the key
+        key = ''.join(filter(str.isalpha, key)).upper()
+
         # Step 3: Create a 5x5 matrix to store the alphabet letters
 
         # Step 4: Replace 'J' with 'I' (due to there being 26 letters in the
         # alphabet and we have only 25 places for the matrix)
+        key = key.replace('J', 'I')
 
         # matrix = generate_playfair_matrix(key)
 
         plaintext = re.sub(r'[^A-Z]', '', text.upper())
 
-        """Encrypts plaintext using the Playfair cipher with the given key"""
-
         # # Create a 5x5 matrix of the letters in the key (with 'J' replaced by 'I')
-        # key = key.replace('J', 'I')
+
         # key += ''.join(chr(i + 65) for i in range(26) if chr(i + 65) not in key + 'I')
         # matrix = [list(key[i:i + 5]) for i in range(0, 25, 5)]
         #
