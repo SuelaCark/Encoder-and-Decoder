@@ -11,6 +11,7 @@ from src.ciphers.cipher import Cipher
 class PlayfairCipher(Cipher):
     def __init__(self, key):
         super().__init__(key)  # this invokes the parent initializer
+        self._key = key
 
     def encrypt(self, text, key):
         plaintext = text.lower()
