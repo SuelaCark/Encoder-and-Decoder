@@ -4,23 +4,33 @@
     relevant implementation for the Atbash cipher.
 
 """
+import string
 
 from src.ciphers.cipher import Cipher
 
 
 class AtbashCipher(Cipher):
-    def __init__(self, key):
-        super().__init__(key)  # this invokes the parent initializer
+    def __init__(self):
+        super().__init__()  # this invokes the parent initializer
 
-    def set_key(self, key):
-        self._key = key
+    # It doesn't need a key, so...?
+    def encrypt(self, text, key=0):
+        text = text.lower()
+        alphabet_lower = list(string.ascii_lowercase)
 
-    def get_key(self):
-        return self._key
-
-    def encrypt(self, text, key):
-        ...
+        # print(alphabet_lower)
+        print(text)
+        for char in text:
+            if char.isalpha():
+                print(char)
 
     def decrypt(self, text):
         ...
+
+
+if __name__ == "__main__":
+    plaintext = "HELLO IKIGAIJA"
+    cipher3 = AtbashCipher()
+
+    print(cipher3.encrypt(plaintext))
 
