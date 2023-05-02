@@ -1,5 +1,5 @@
 from caesar_cipher import CaesarCipher
-from atbash import AtbashCipher
+from atbash_cipher import AtbashCipher
 from vignere_cipher import VignereCipher
 
 if __name__ == '__main__':
