@@ -10,12 +10,12 @@ from playfair_cipher import PlayfairCipher
 if __name__ == '__main__':
     ...
     # Testing Caesar Cipher
-    # cipher = CaesarCipher(7)
-    # encrypted_message = cipher.encrypt("Hello world!", 7)
-    # decrypted_message = cipher.decrypt(encrypted_message)
-    #
-    # print(encrypted_message)
-    # print(decrypted_message)
+    cipher = CaesarCipher(7)
+    encrypted_message = cipher.encrypt("Hello world!", 7)
+    decrypted_message = cipher.decrypt(encrypted_message)
+
+    print(encrypted_message)
+    print(decrypted_message)
 
     # Testing Playfair Cipher
     # cipher2 = PlayfairCipher("Gravity")

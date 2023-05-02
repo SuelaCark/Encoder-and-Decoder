@@ -13,11 +13,18 @@ class CaesarCipher(Cipher):
         super().__init__(shift)  # this invokes the parent initializer
         self._shift = shift
 
+    def set_shift(self, shift):
+        self._shift = shift
+
+    def get_shift(self):
+        return self._shift
+
     # For now, the encrypt func only encrypts text
     # Might be able to expand it to also include numbers with shifting
     # for a better encryption of the text
     def encrypt(self, text, shift, key=0):
         encrypted_text = ""
+        print(key)
         # transverse the plain text
         for char in text:
             if char.isalpha():
@@ -50,8 +57,3 @@ class CaesarCipher(Cipher):
 
         return decrypted_text
 
-    def set_key(self, key):
-        self._key = key
-
-    def set_shift(self, shift):
-        self._shift = shift
