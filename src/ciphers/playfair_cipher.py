@@ -11,7 +11,12 @@ from src.ciphers.cipher import Cipher
 class PlayfairCipher(Cipher):
     def __init__(self, key):
         super().__init__(key)  # this invokes the parent initializer
-        self._key = key
+
+        def set_key(self, key):
+            self._key = key
+
+        def get_key(self):
+            return self._key
 
     def encrypt(self, text, key):
         plaintext = text.lower()
@@ -26,10 +31,30 @@ class PlayfairCipher(Cipher):
         # Remove non-letter chars from the key
         key = ''.join(filter(str.isalpha, key)).lower()
 
+        # for char in plaintext:
+        #     for ch in key:
+        #         if char == key[ch]:
+        #             print(char)
+        #             print(ch)
+
+        for i in range(len(plaintext)):
+            char = plaintext[i]
+            if char in range(len(key)):
+                # print(key[char])
+                print(char)
+
+            # char = plaintext[i]
+            # key_ch = key[i % len(key)]
+            # print(char)
+            # print(key_ch)
+
+
         # Replace 'J' with 'I' (due to there being 26 letters in the alphabet and
         # we have only 25 places for the matrix)
         plaintext = plaintext.replace('j', 'i')
         key = key.replace('j', 'i')
+
+
 
         key += ''.join(chr(i + 65) for i in range(26) if chr(i + 65) not in key + 'i').lower()
         print(key)
@@ -39,7 +64,7 @@ class PlayfairCipher(Cipher):
             if i in matrix:
                 ...
 
-            print(matrix)
+            # print(matrix)
 
         # transposed_matrix = list(map(list, zip(*matrix)))
         # for i in range(len(transposed_matrix)):

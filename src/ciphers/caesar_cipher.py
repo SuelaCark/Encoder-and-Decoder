@@ -9,29 +9,25 @@ from src.ciphers.cipher import Cipher
 
 
 class CaesarCipher(Cipher):
-    def __init__(self, shift):
-        super().__init__(shift)  # this invokes the parent initializer
-        self._shift = shift
+    def __init__(self, key):
+        super().__init__(key)  # this invokes the parent initializer
 
-    def set_shift(self, shift):
-        self._shift = shift
+    def set_key(self, key):
+        self._key = key
 
-    def get_shift(self):
-        return self._shift
+    def get_key(self):
+        return self._key
 
-    # For now, the encrypt func only encrypts text
-    # Might be able to expand it to also include numbers with shifting
-    # for a better encryption of the text
-    def encrypt(self, text, shift, key=0):
+    def encrypt(self, text, key):
         encrypted_text = ""
         print(key)
         # transverse the plain text
         for char in text:
             if char.isalpha():
-                shift_code = 65 if char.isupper() else 97
+                key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)
 
-                new_ascii_code = (ascii_code - shift_code + self._shift) % 26 + shift_code
+                new_ascii_code = (ascii_code - key_code + self._key) % 26 + key_code
                 encrypted_char = chr(new_ascii_code)
             else:
                 encrypted_char = char
@@ -45,10 +41,10 @@ class CaesarCipher(Cipher):
 
         for char in text:
             if char.isalpha():
-                shift_code = 65 if char.isupper() else 97
+                key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)
 
-                new_ascii_code = (ascii_code - self._shift - shift_code) % 26 + shift_code
+                new_ascii_code = (ascii_code - self._key - key_code) % 26 + key_code
                 decrypted_char = chr(new_ascii_code)
             else:
                 decrypted_char = char
