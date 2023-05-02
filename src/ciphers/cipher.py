@@ -4,6 +4,7 @@
 """
 
 from abc import ABC, abstractmethod
+from src.file_management.file_input import FileReader
 
 
 class Cipher(ABC):
@@ -17,10 +18,9 @@ class Cipher(ABC):
         return self.__key
 
     @abstractmethod
-    def encrypt(self, plain_text, key):
-        # After adding the file input, change the text parameter to file
+    def encrypt(self, file_text, key):
         raise NotImplementedError("NotImplementedError")
 
     @abstractmethod
-    def decrypt(self, text, key=""):
+    def decrypt(self, file_text, key=""):
         raise NotImplementedError("NotImplementedError")

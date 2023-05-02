@@ -1,7 +1,6 @@
 """
-    This file holds the Vignere Cipher child class which inherits the variables of
-    abstract class Cipher and overrides its abstract methods with the relevant implementation for
-    the Vignere cipher.
+    This file holds the Vignere Cipher child class which inherits the variables of abstract class Cipher and overrides
+    its abstract methods with the relevant implementation for the Vignere cipher.
 
 """
 

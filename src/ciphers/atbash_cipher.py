@@ -1,7 +1,6 @@
 """
-    This file holds the Atbash Cipher child class which inherits the variables
-    of abstract class Cipher and overrides its abstract methods with the
-    relevant implementation for the Atbash cipher.
+    This file holds the Atbash Cipher child class which inherits the variables of abstract class Cipher and overrides
+    its abstract methods with the relevant implementation for the Atbash cipher.
 
 """
 
@@ -35,7 +34,7 @@ class AtbashCipher(Cipher):
 
         return encrypted_text
 
-    def decrypt(self, text):
+    def decrypt(self, text, key=""):
         if not isinstance(text, str):
             raise TypeError("Input message must be a string")
 
