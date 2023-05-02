@@ -29,12 +29,12 @@ class AtbashCipher(Cipher):
 
         return encrypted_text
 
-    def decrypt(self, encrypted_text):
-        if not isinstance(encrypted_text, str):
+    def decrypt(self, text):
+        if not isinstance(text, str):
             raise TypeError("Input message must be a string")
 
         decrypted_text = ""
-        text = encrypted_text.lower
+        text = text.lower()
 
         alphabet = list(string.ascii_lowercase)
         reversed_alphabet = list(reversed(alphabet))
@@ -46,8 +46,6 @@ class AtbashCipher(Cipher):
             else:
                 decrypted_text += letter
 
-        print(decrypted_text)
-
         return decrypted_text
 
 
@@ -56,6 +54,4 @@ if __name__ == "__main__":
     cipher3 = AtbashCipher()
 
     text1 = cipher3.encrypt(plaintext)
-
-    # print(cipher3.encrypt(plaintext))
-    print(cipher3.decrypt(text1))
+    print(cipher3.encrypt("SVOOL Dliow"))
