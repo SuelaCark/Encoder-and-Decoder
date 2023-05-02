@@ -22,5 +22,5 @@ class Cipher(ABC):
         raise NotImplementedError("NotImplementedError")
 
     @abstractmethod
-    def decrypt(self, text):
+    def decrypt(self, text, key=""):
         raise NotImplementedError("NotImplementedError")

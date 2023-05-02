@@ -31,7 +31,7 @@ class CaesarCipher(Cipher):
         return encrypted_text
 
     # Caesar Cipher decrypt function
-    def decrypt(self, text):
+    def decrypt(self, text, key=""):
         decrypted_text = ""
 
         for char in text:

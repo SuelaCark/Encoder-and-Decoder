@@ -9,54 +9,62 @@
 #
 #
 # class PlayfairCipher(Cipher):
-#     def __init__(self, key):
-#         super().__init__(key)  # this invokes the parent initializer
+#     def __init__(self, keys=""):
+#         print(keys)
+#         super().__init__(keys)  # this invokes the parent initializer
 #
-#     def encrypt(self, text, key):
-#         plaintext = text.lower()
+#     def encrypt(self, text, keys):
+#         plain_text = text.upper()
 #
-#         # Remove non alphabetic chars from the text
-#         plaintext = ''.join(filter(str.isalpha, plaintext))
-#
-#         # Checks if the text is even or odd, if odd adds 'z' in the end of the text
-#         if len(plaintext) % 2 == 1:
-#             plaintext += 'z'
+#         # Remove non alphabetic chars from the text and the key
+#         plain_text = ''.join(filter(str.isalpha, plain_text))
 #
 #         # Remove non-letter chars from the key
-#         key = ''.join(filter(str.isalpha, key)).lower()
+#         keys = ''.join(filter(str.isalpha, keys)).upper()
 #
-#         # for char in plaintext:
-#         #     for ch in key:
-#         #         if char == key[ch]:
-#         #             print(char)
-#         #             print(ch)
-#
-#         for i in range(len(plaintext)):
-#             char = plaintext[i]
-#             if char in range(len(key)):
-#                 # print(key[char])
-#                 print(char)
-#
-#             # char = plaintext[i]
-#             # key_ch = key[i % len(key)]
-#             # print(char)
-#             # print(key_ch)
-#
+#         # Checks if the text is even or odd, if odd adds 'z' in the end of the text
+#         if len(plain_text) % 2 == 1:
+#             plain_text += 'z'
 #
 #         # Replace 'J' with 'I' (due to there being 26 letters in the alphabet and
 #         # we have only 25 places for the matrix)
-#         plaintext = plaintext.replace('j', 'i')
-#         key = key.replace('j', 'i')
+#         plain_text = plain_text.replace('J', 'I')
+#         keys = keys.replace('J', 'I')
+#
+#         # Remove duplicate letters from the key
+#         keys = ''.join(sorted(set(keys), key=keys.index))
+#         print(keys)
+#
+#         # keys += ''.join(chr(i + 97) for i in range(26) if chr(i + 97) not in key + 'i')
+#         # ascii_alphabet = [chr(i) for i in range(65, 90)]
+#
+#         for i in range(26):
+#             if chr(i + 65) not in keys + 'I':
+#                 keys += chr(i + 65)
+#
+#         print(keys)
+#         print(len(keys))
+#             # for ch in key:
+#             #     if char == key[ch]:
+#             #         print(char)
+#             #         print(ch)
+#
+#         # for i in range(len(plain_text)):
+#         #     char = plain_text[i]
+#         #     if char in range(len(keys)):
+#         #         # print(key[char])
+#         #         print(char)
+#         # char = plain_text[i]
+#         # key_ch = key[i % len(key)]
 #
 #
 #
-#         key += ''.join(chr(i + 65) for i in range(26) if chr(i + 65) not in key + 'i').lower()
-#         print(key)
 #
-#         for i in range(0, 25, 5):
-#             matrix = list(key[i:i + 5].lower())
-#             if i in matrix:
-#                 ...
+#
+#         # for i in range(0, 25, 5):
+#         #     matrix = list(keys[i:i + 5].upper())
+#         #     if i in matrix:
+#         #         ...
 #
 #             # print(matrix)
 #
@@ -72,31 +80,26 @@
 #         # print(transposed_matrix)
 #
 #         # for i in range(26):
-#         #     if chr(i + 65) not in key + 'i':
-#         #         key += chr(i + 65).lower()
-#         #         print(key)
-#
-#
-#         print(key)
+#         #     if chr(i + 65) not in keys + 'i':
+#         #         keys += chr(i + 65).upper()
+#         #         print(keys)
 #
 #         # Create a 5x5 matrix to store the alphabet letters
-#         # matrix = [list(key[i:i + 5]) for i in range(0, 25, 5)]
+#         # matrix = [list(keys[i:i + 5]) for i in range(0, 25, 5)]
 #
+#         # Replace any pairs of letters in the plain_text that are the same with 'X'
+#         # for i in range(0, len(plain_text), 2):
+#         #     if plain_text[i] == plain_text[i + 1]:
+#         #         plain_text[i] + 'x'
+#         #     else:
+#         #         plain_text[i:i + 2]
 #
+#         # print(plain_text)
 #
-#         # Replace any pairs of letters in the plaintext that are the same with 'X'
-#         for i in range(0, len(plaintext), 2):
-#             if plaintext[i] == plaintext[i + 1]:
-#                 plaintext[i] + 'x'
-#             else:
-#                 plaintext[i:i + 2]
-#
-#         # print(plaintext)
-#
-#         # Encrypt the plaintext using the matrix
-#         ciphertext = ''
-#         for i in range(0, len(plaintext), 2):
-#             # a, b = plaintext[i], plaintext[i + 1]
+#         # Encrypt the plain_text using the matrix
+#         cipher_text = ''
+#         # for i in range(0, len(plain_text), 2):
+#             # a, b = plain_text[i], plain_text[i + 1]
 #             # a_row, a_col = next((r, c) for r in range(5) for c in range(5) if matrix[r][c] == a)
 #             # b_row, b_col = next((r, c) for r in range(5) for c in range(5) if matrix[r][c] == b)
 #             # if a_row == b_row:
@@ -106,7 +109,7 @@
 #             # else:
 #             #     ciphertext += matrix[a_row][b_col] + matrix[b_row][a_col]
 #
-#             return ciphertext
+#             # return ciphertext
 #
 #     def decrypt(self, text):
 #         pass

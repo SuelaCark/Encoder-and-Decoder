@@ -58,11 +58,3 @@ class AtbashCipher(Cipher):
                 decrypted_text += letter
 
         return decrypted_text
-
-
-if __name__ == "__main__":
-    plaintext = "HELLO World"
-    cipher3 = AtbashCipher()
-
-    print(cipher3.encrypt(plaintext))
-    print(cipher3.decrypt("SVOOL Dliow53212   ??!"))
