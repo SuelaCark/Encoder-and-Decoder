@@ -4,8 +4,8 @@
     relevant implementation for the Atbash cipher.
 
 """
-import string
 
+import string
 from src.ciphers.cipher import Cipher
 
 
@@ -13,23 +13,30 @@ class AtbashCipher(Cipher):
     def __init__(self):
         super().__init__()  # this invokes the parent initializer
 
-    # It doesn't need a key, so...?
     def encrypt(self, text, key=0):
+        encrypted_text = ""
         text = text.lower()
-        alphabet_lower = list(string.ascii_lowercase)
 
-        # print(alphabet_lower)
-        print(text)
+        alphabet = list(string.ascii_lowercase)
+        reversed_alphabet = list(reversed(alphabet))
+        combined_alphabet = dict(zip(alphabet, reversed_alphabet))
+
         for char in text:
             if char.isalpha():
-                print(char)
+                encrypted_text += combined_alphabet[char]
+            else:
+                encrypted_text += char
+
+        print(encrypted_text)
+
+        return encrypted_text
 
     def decrypt(self, text):
         ...
 
 
 if __name__ == "__main__":
-    plaintext = "HELLO IKIGAIJA"
+    plaintext = "HELLO World"
     cipher3 = AtbashCipher()
 
     print(cipher3.encrypt(plaintext))
