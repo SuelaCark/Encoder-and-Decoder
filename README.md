@@ -3,11 +3,11 @@ Encoder and decoder project in python
 
 
 ###Project structure:
-
+```
 Encoder-and-Decoder/
 ├── htmlcov
 │ ├── index.html
-│ ├── ...
+│ └── ...
 ├── src
 │ ├── ciphers/
 │   ├── __init__.py
@@ -36,3 +36,4 @@ Encoder-and-Decoder/
 │
 ├── .coverage
 └──  README.md
+```
