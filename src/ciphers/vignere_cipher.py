@@ -1,7 +1,7 @@
 """
-    This file holds the Homophonic Substitution Cipher child class which inherits the variables of
+    This file holds the Vignere Cipher child class which inherits the variables of
     abstract class Cipher and overrides its abstract methods with the relevant implementation for
-    the Homophonic Substitution cipher.
+    the Vignere cipher.
 
 """
 
@@ -55,12 +55,3 @@ class VignereCipher(Cipher):
                 decrypted_text += char
 
         return decrypted_text
-
-
-if __name__ == "__main__":
-    plain_text = "HELLO WORLD"
-    key = "SECRETkey"
-    cipher4 = VignereCipher("SECRETkey")
-    text = cipher4.encrypt(plain_text, key)
-    print(text)
-    print(cipher4.decrypt(text, key))

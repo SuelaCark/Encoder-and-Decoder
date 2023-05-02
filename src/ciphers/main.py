@@ -1,6 +1,6 @@
 from caesar_cipher import CaesarCipher
-from playfair_cipher import PlayfairCipher
 from atbash import AtbashCipher
+from vignere_cipher import VignereCipher
 
 if __name__ == '__main__':
 
@@ -13,12 +13,20 @@ if __name__ == '__main__':
     print(decrypted_message)
 
     # Testing Playfair Cipher
-    # cipher2 = PlayfairCipher("Gravity")
-    # encrypted_message2 = cipher2.encrypt("HELLO WORLD", "Gravity")
+    cipher2 = PlayfairCipher("Gravity")
+    encrypted_message2 = cipher2.encrypt("HELLO WORLD", "Gravity")
 
     # Testing Atbash Cipher
-    # plaintext = "HELLO World"
-    # cipher3 = AtbashCipher()
-    #
-    # print(cipher3.encrypt(plaintext))
-    # print(cipher3.decrypt("SVOOL Dliow53212   ??!"))
+    plaintext = "HELLO World"
+    cipher3 = AtbashCipher()
+
+    print(cipher3.encrypt(plaintext))
+    print(cipher3.decrypt("SVOOL Dliow53212   ??!"))
+
+    # Testing Vignere Cipher
+    plain_text = "sunday"
+    key = "michigan"
+    cipher4 = VignereCipher("michigan")
+    text = cipher4.encrypt(plain_text, key)
+    print(text)
+    print(cipher4.decrypt(text, key))
