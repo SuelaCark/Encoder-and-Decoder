@@ -4,18 +4,17 @@
 """
 
 from abc import ABC, abstractmethod
-from src.file_management.file_input import FileReader
 
 
 class Cipher(ABC):
     def __init__(self, key=0):
-        self.__key = key
+        self._key = key
 
     def set_key(self, key):
-        self.__key = key
+        self._key = key
 
     def get_key(self):
-        return self.__key
+        return self._key
 
     @abstractmethod
     def encrypt(self, file_text, key):
@@ -24,3 +23,7 @@ class Cipher(ABC):
     @abstractmethod
     def decrypt(self, file_text, key=""):
         raise NotImplementedError("NotImplementedError")
+
+    # @abstractmethod
+    # def write_file_output(self, file_name, result=""):
+    #     raise  NotImplementedError("NotImplementedError")

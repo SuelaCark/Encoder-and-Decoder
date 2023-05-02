@@ -11,8 +11,11 @@ class CaesarCipher(Cipher):
     def __init__(self, key=0):
         super().__init__(key)  # this invokes the parent initializer
 
+    def get_key(self):
+        return self._key
+
     # Caesar Cipher encrypt function
-    def encrypt(self, text, key=0):
+    def encrypt(self, text, key):
         encrypted_text = ""
         # transverse the plain text
         for char in text:
@@ -20,7 +23,7 @@ class CaesarCipher(Cipher):
                 key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)
 
-                new_ascii_code = (ascii_code - key_code + self.__key) % 26 + key_code
+                new_ascii_code = (ascii_code - key_code + self._key) % 26 + key_code
                 encrypted_char = chr(new_ascii_code)
             else:
                 encrypted_char = char
@@ -38,11 +41,21 @@ class CaesarCipher(Cipher):
                 key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)
 
-                new_ascii_code = (ascii_code - self.__key - key_code) % 26 + key_code
+                new_ascii_code = (ascii_code - self._key - key_code) % 26 + key_code
                 decrypted_char = chr(new_ascii_code)
             else:
                 decrypted_char = char
 
             decrypted_text += decrypted_char
-
+        # self.write_file_output(self.file_name, decrypted_text)
         return decrypted_text
+
+    # Write the result of the Caesar Cipher encryption/decryption as a file output
+    # def write_file_output(self, file_name, result=""):
+    #     try:
+    #         with open(file_name, 'w') as file:
+    #             for line in file:
+    #                 file.write(line)
+    #
+    #     except FileNotFoundError:
+    #         print("No such file")
