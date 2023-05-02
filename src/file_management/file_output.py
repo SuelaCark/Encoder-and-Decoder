@@ -7,43 +7,56 @@
 # 2. There can be a separate input and output file for file management before and after encryption
 
 from src.ciphers.caesar_cipher import CaesarCipher
-
-
-def write_file(file_name, result=""):
-    try:
-        with open(file_name, 'w') as file:
-            file.write(result)
-
-    except FileNotFoundError:
-        print("No such file")
+from src.ciphers.atbash_cipher import AtbashCipher
+from src.ciphers.vignere_cipher import VignereCipher
 
 
 def process_input():
-    message = str(input("Enter a message you would like to encrypt or decrypt: "))
+    # Choose operation/action: "encrypt" or "decrypt"
     operation = str(input("Do you want to encrypt or decrypt the message? (encrypt/decrypt): "))
 
-    if operation == "encrypt" and isinstance(CaesarCipher(), object):
-        key = int(input('Enter the encryption key: '))
-    elif operation == "decrypt" and isinstance(CaesarCipher(), object):
-        key = int(input('Enter the decryption key: '))
+    if operation == "encrypt":
+        key_prompt = 'Enter the encryption key: '
+    elif operation == "decrypt":
+        key_prompt = 'Enter the decryption key: '
     else:
-        key = None
-        raise ValueError("The available action modes are only encrypt and decrypt.")
+        raise ValueError(f"Invalid operation: {operation}")
+
+    # Write the name of the cipher the user wants to use
+    cipher_name = input('Enter the cipher name ("caesar", "atbash", or "vignere"): ')
+
+    if cipher_name == "caesar":
+        cipher = CaesarCipher()
+    elif cipher_name == "atbash":
+        cipher = AtbashCipher()
+    elif cipher_name == "vignere":
+        cipher = VignereCipher()
+    else:
+        raise ValueError(f"Invalid cipher name: {cipher_name}")
+
+    # Defining a list of all allowed cipher classes
+    ALLOWED_CIPHERS = [CaesarCipher, AtbashCipher, VignereCipher]
+
+    if isinstance(AtbashCipher(), object):
+        pass
+    if isinstance(cipher, tuple(ALLOWED_CIPHERS)):
+        key = int(input(key_prompt))
+    else:
+        raise ValueError(f"Invalid cipher: {cipher.__class__.__name__}")
+
+    input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
 
     if operation == 'encrypt':
         cipher = CaesarCipher(key)
-        result = cipher.encrypt(message, key)
     else:
         cipher = CaesarCipher(key)
-        result = cipher.decrypt(message)
 
     filename = input('Enter the name of the output file: ')
-    write_file(filename, result)
+    output_text = cipher.encrypt(input_text, key) if operation == "encrypt" else cipher.decrypt(input_text, key)
 
+    try:
+        with open(filename, 'w') as file:
+            file.write(output_text)
 
-    # file_name = str(input("Please input an existing file name: "))
-    #
-    # if type(file_name) == str and file_name == "*.txt":
-    #     ...
-    # else:
-    #     raise TypeError("The file_name should be a string")
+    except FileNotFoundError:
+        print("No such file")

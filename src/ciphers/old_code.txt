@@ -1,0 +1,26 @@
+# output_text = cipher.encrypt(input_text, key) if operation == "encrypt" else cipher.decrypt(input_text, key)
+
+    # if operation == "encrypt" and isinstance(CaesarCipher(), object):
+    #     key = int(input('Enter the encryption key: '))
+    # elif operation == "decrypt" and isinstance(CaesarCipher(), object):
+    #     key = int(input('Enter the decryption key: '))
+    # else:
+    #     key = None
+    #     raise ValueError("The available action modes are only encrypt and decrypt.")
+
+
+
+    # file_name = str(input("Please input an existing file name: "))
+    #
+    # if type(file_name) == str and file_name == "*.txt":
+    #     ...
+    # else:
+    #     raise TypeError("The file_name should be a string"
+
+    def write_file(file_name, result=""):
+    try:
+        with open(file_name, 'w') as file:
+            file.write(result)
+
+    except FileNotFoundError:
+        print("No such file")

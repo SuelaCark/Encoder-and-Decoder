@@ -12,7 +12,7 @@ class AtbashCipher(Cipher):
     def __init__(self):
         super().__init__()  # this invokes the parent initializer
 
-    def encrypt(self, text, key=0):
+    def encrypt(self, text, key=None):
         encrypted_text = ""
 
         # Lists of lower and upper case alphabet (regular order)
@@ -34,7 +34,7 @@ class AtbashCipher(Cipher):
 
         return encrypted_text
 
-    def decrypt(self, text, key=""):
+    def decrypt(self, text, key=None):
         if not isinstance(text, str):
             raise TypeError("Input message must be a string")
 
