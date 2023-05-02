@@ -12,12 +12,6 @@
 #     def __init__(self, key):
 #         super().__init__(key)  # this invokes the parent initializer
 #
-#         def set_key(self, key):
-#             self._key = key
-#
-#         def get_key(self):
-#             return self._key
-#
 #     def encrypt(self, text, key):
 #         plaintext = text.lower()
 #

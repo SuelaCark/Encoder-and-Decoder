@@ -8,7 +8,13 @@ from abc import ABC, abstractmethod
 
 class Cipher(ABC):
     def __init__(self, key=0):
-        self._key = key
+        self.__key = key
+
+    def set_key(self, key):
+        self.__key = key
+
+    def get_key(self):
+        return self.__key
 
     @abstractmethod
     def encrypt(self, plain_text, key):
@@ -18,5 +24,3 @@ class Cipher(ABC):
     @abstractmethod
     def decrypt(self, text):
         raise NotImplementedError("NotImplementedError")
-
-

@@ -15,11 +15,17 @@ class AtbashCipher(Cipher):
 
     def encrypt(self, text, key=0):
         encrypted_text = ""
-        text = text.lower()
 
-        alphabet = list(string.ascii_lowercase)
-        reversed_alphabet = list(reversed(alphabet))
-        combined_alphabet = dict(zip(alphabet, reversed_alphabet))
+        # Lists of lower and upper case alphabet (regular order)
+        alphabet_lower = list(string.ascii_lowercase)
+        alphabet_upper = list(string.ascii_uppercase)
+
+        # Create dictionaries which use the reversed order alphabet and the regular order alphabet
+        combined_alphabet_lower = dict(zip(list(reversed(alphabet_lower)), alphabet_lower))
+        combined_alphabet_upper = dict(zip(list(reversed(alphabet_upper)), alphabet_upper))
+
+        # Create a joined dictionary out of two other dictionaries
+        combined_alphabet = {**combined_alphabet_lower, **combined_alphabet_upper}
 
         for char in text:
             if char.isalpha():
@@ -34,11 +40,16 @@ class AtbashCipher(Cipher):
             raise TypeError("Input message must be a string")
 
         decrypted_text = ""
-        text = text.lower()
+        # Lists of lower and upper case alphabet (regular order)
+        alphabet_lower = list(string.ascii_lowercase)
+        alphabet_upper = list(string.ascii_uppercase)
 
-        alphabet = list(string.ascii_lowercase)
-        reversed_alphabet = list(reversed(alphabet))
-        combined_alphabet = dict(zip(reversed_alphabet, alphabet))
+        # Create dictionaries which use the reversed order alphabet and the regular order alphabet
+        combined_alphabet_lower = dict(zip(list(reversed(alphabet_lower)), alphabet_lower))
+        combined_alphabet_upper = dict(zip(list(reversed(alphabet_upper)), alphabet_upper))
+
+        # Create a joined dictionary out of two other dictionaries
+        combined_alphabet = {**combined_alphabet_lower, **combined_alphabet_upper}
 
         for letter in text:
             if letter.isalpha():
@@ -53,5 +64,5 @@ if __name__ == "__main__":
     plaintext = "HELLO World"
     cipher3 = AtbashCipher()
 
-    text1 = cipher3.encrypt(plaintext)
-    print(cipher3.encrypt("SVOOL Dliow"))
+    print(cipher3.encrypt(plaintext))
+    print(cipher3.decrypt("SVOOL Dliow53212   ??!"))
