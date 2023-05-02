@@ -27,17 +27,35 @@ class AtbashCipher(Cipher):
             else:
                 encrypted_text += char
 
-        print(encrypted_text)
-
         return encrypted_text
 
-    def decrypt(self, text):
-        ...
+    def decrypt(self, encrypted_text):
+        if not isinstance(encrypted_text, str):
+            raise TypeError("Input message must be a string")
+
+        decrypted_text = ""
+        text = encrypted_text.lower
+
+        alphabet = list(string.ascii_lowercase)
+        reversed_alphabet = list(reversed(alphabet))
+        combined_alphabet = dict(zip(reversed_alphabet, alphabet))
+
+        for letter in text:
+            if letter.isalpha():
+                decrypted_text += combined_alphabet[letter]
+            else:
+                decrypted_text += letter
+
+        print(decrypted_text)
+
+        return decrypted_text
 
 
 if __name__ == "__main__":
     plaintext = "HELLO World"
     cipher3 = AtbashCipher()
 
-    print(cipher3.encrypt(plaintext))
+    text1 = cipher3.encrypt(plaintext)
 
+    # print(cipher3.encrypt(plaintext))
+    print(cipher3.decrypt(text1))
