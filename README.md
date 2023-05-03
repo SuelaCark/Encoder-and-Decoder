@@ -62,7 +62,8 @@ The OOP inheritance is used to create the implementation of the ciphers. The fol
 - Abstract super class Cipher - initial constructor with an optional parameter (key). Getters and setters for the key.
 Two abstract methods encrypt() and decrypt() which are not implemented (this will allow child classes to have their own 
 implementation of the methods)
-- Child class caesar_cipher - 
+- Child class caesar_cipher - initial constructor which class the super class constructor. The implementation of the
+encrypt() and decrypt() abstract methods from the superclass to suit the Caesar cipher. 
 - Child class atbash_cipher - 
 - Child class vignere_cipher - 
 

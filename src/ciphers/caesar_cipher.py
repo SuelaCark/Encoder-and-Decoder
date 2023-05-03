@@ -47,15 +47,5 @@ class CaesarCipher(Cipher):
                 decrypted_char = char
 
             decrypted_text += decrypted_char
-        # self.write_file_output(self.file_name, decrypted_text)
-        return decrypted_text
 
-    # Write the result of the Caesar Cipher encryption/decryption as a file output
-    # def write_file_output(self, file_name, result=""):
-    #     try:
-    #         with open(file_name, 'w') as file:
-    #             for line in file:
-    #                 file.write(line)
-    #
-    #     except FileNotFoundError:
-    #         print("No such file")
+        return decrypted_text
