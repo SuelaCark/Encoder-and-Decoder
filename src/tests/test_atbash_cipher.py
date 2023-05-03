@@ -15,7 +15,7 @@ class TestAtbashCipher(unittest.TestCase):
         self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Hello world!"), "Svool happy!")
         self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Python"), "Java")
         self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Encrypt"), "Decrypt")
-    
+
     def test_atbash_decrypt_success(self):
         self.assertEqual(AtbashCipher.decrypt(AtbashCipher(), "Svool dliow!"), "Hello world!")
         self.assertEqual(AtbashCipher.decrypt(AtbashCipher(), "Kbgslm"), "Python")
@@ -26,10 +26,6 @@ class TestAtbashCipher(unittest.TestCase):
         self.assertNotEqual(AtbashCipher.decrypt(AtbashCipher(), "Kbgslm"), "Zdraveite")
         self.assertNotEqual(AtbashCipher.decrypt(AtbashCipher(), "Vmxibkg"), "Flag")
 
+
 if __name__ == '__main__':
     unittest.main()
-
-    # def test_set_key_success(self):
-    #     cipher = Cipher("key")
-    #     cipher.set_key = "fun"
-    #     self.assertEqual(cipher.name, "fun")

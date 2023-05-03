@@ -23,13 +23,15 @@ def process_input():
         cipher_name = input('Enter the cipher name ("caesar", "atbash", or "vigenere"): ')
 
         # Defining a list of all allowed cipher classes
-        ALLOWED_CIPHERS = ["caesar", "Caesar", "CAESAR", "atbash", "Atbash", "ATBASH",
+        allowed_ciphers = ["caesar", "Caesar", "CAESAR", "atbash", "Atbash", "ATBASH",
                            "vigenere", "Vigenere", "VIGENERE"]
 
-        if cipher_name not in ALLOWED_CIPHERS:
-            print("Please enter a valid cipher name (caesar, atbash, or vigenere). Check for grammar mistakes! ")
+        if cipher_name not in allowed_ciphers:
+            print("Please enter a valid cipher name "
+                  "(caesar, atbash, or vigenere). Check for grammar mistakes! ")
         else:
-            # Map cipher name to a cipher class and ask for the encryption/decryption key for each cipher respectively
+            # Map cipher name to a cipher class and ask for the
+            # encryption/decryption key for each cipher respectively
             if cipher_name == "caesar":
                 key_prompt = 'Enter the encryption key (integer expected): ' \
                     if operation == "encrypt" else 'Enter the decryption key (integer expected): '
@@ -38,7 +40,7 @@ def process_input():
                     key = int(input(key_prompt))
                     cipher = CaesarCipher(key)
 
-                    input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
+                    input_text = str(input("Enter the message you would like to encrypt/decrypt: "))
 
                     output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
                         else cipher.decrypt(input_text, key)
@@ -63,12 +65,11 @@ def process_input():
                         key = input(key_prompt)
                         if key.isalpha():
                             break
-                        else:
-                            print("The key can only contain alphabetic characters. Please try again.")
+                        print("The key can only contain alphabetic characters. Try again.")
 
                     cipher = VigenereCipher(key)
 
-                    input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
+                    input_text = str(input("Enter the message you would like to encrypt/decrypt: "))
                     output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
                         else cipher.decrypt(input_text, key)
                     break

@@ -1,6 +1,7 @@
 """
-    This file holds the Caesar Cipher child class which inherits the variables of abstract class Cipher and overrides
-    its abstract methods with the relevant implementation for the Caesar cipher.
+    This file holds the Caesar Cipher child class which inherits the variables of
+    abstract class Cipher and overrides its abstract methods with the relevant
+    implementation for the Caesar cipher.
 
 """
 
@@ -15,10 +16,10 @@ class CaesarCipher(Cipher):
         return self._key
 
     # Caesar Cipher encrypt function
-    def encrypt(self, text, key):
+    def encrypt(self, file_text, key):
         encrypted_text = ""
         # transverse the plain text
-        for char in text:
+        for char in file_text:
             if char.isalpha():
                 key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)
@@ -33,10 +34,10 @@ class CaesarCipher(Cipher):
         return encrypted_text
 
     # Caesar Cipher decrypt function
-    def decrypt(self, text, key=""):
+    def decrypt(self, file_text, key=""):
         decrypted_text = ""
 
-        for char in text:
+        for char in file_text:
             if char.isalpha():
                 key_code = 65 if char.isupper() else 97
                 ascii_code = ord(char)

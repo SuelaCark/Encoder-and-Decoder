@@ -4,7 +4,7 @@ from src.ciphers.vigenere_cipher import VigenereCipher
 
 class TestVigenereeCipher(unittest.TestCase):
     def setUp(self):
-        self.obj = VigenereCipher(3)
+        self.obj = VigenereCipher()
 
     def test_get_key(self):
         self.assertEqual(self.obj.get_key(), 3)

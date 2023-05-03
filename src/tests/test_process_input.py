@@ -8,41 +8,40 @@ class TestProcessInput(unittest.TestCase):
     def test_caesar_decrypt(self):
         with patch('builtins.input', side_effect=['decrypt', 'caesar', '2', 'jgnnq', 'output']):
             process_input()
-            with open('output.txt') as f:
-                result = f.read()
+            with open('output.txt') as file:
+                result = file.read()
             self.assertEqual(result.strip(), 'hello')
 
     # PASSED
     def test_atbash_encrypt(self):
         with patch('builtins.input', side_effect=['encrypt', 'atbash', 'hello', 'output']):
             process_input()
-            with open('output.txt') as f:
-                result = f.read()
+            with open('output.txt') as file:
+                result = file.read()
             self.assertEqual(result.strip(), 'svool')
-
 
     # PASSED
     def test_atbash_decrypt(self):
         with patch('builtins.input', side_effect=['decrypt', 'atbash', 'svool', 'output']):
             process_input()
-            with open('output.txt') as f:
-                result = f.read()
+            with open('output.txt') as file:
+                result = file.read()
             self.assertEqual(result.strip(), 'hello')
 
     # PASSED
     def test_vigenere_encrypt(self):
         with patch('builtins.input', side_effect=['encrypt', 'vigenere', 'key', 'hello', 'output']):
             process_input()
-            with open('output.txt') as f:
-                result = f.read()
+            with open('output.txt') as file:
+                result = file.read()
             self.assertEqual(result.strip(), 'rijvs')
 
     # PASSED
     def test_vigenere_decrypt(self):
         with patch('builtins.input', side_effect=['decrypt', 'vigenere', 'key', 'rijvs', 'output']):
             process_input()
-            with open('output.txt') as f:
-                result = f.read()
+            with open('output.txt') as file:
+                result = file.read()
             self.assertEqual(result.strip(), 'hello')
 
     def test_invalid_operation(self):

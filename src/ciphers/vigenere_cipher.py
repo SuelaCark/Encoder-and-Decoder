@@ -1,6 +1,7 @@
 """
-    This file holds the Vigenere Cipher child class which inherits the variables of abstract class Cipher and overrides
-    its abstract methods with the relevant implementation for the Vigeneree cipher.
+    This file holds the Vigenere Cipher child class which inherits the variables of
+    abstract class Cipher and overrides its abstract methods with the relevant
+    implementation for the Vigeneree cipher.
 
 """
 
@@ -15,11 +16,11 @@ class VigenereCipher(Cipher):
     def __init__(self, key=""):
         super().__init__(key)
 
-    def encrypt(self, plain_text, key):
+    def encrypt(self, file_text, key):
         """
-        Takes the plain_text and the key (which is a string word), evaluates ...
+        Takes the file_text and the key (which is a string word), evaluates ...
         Finally, it returns the string encrypted_text.
-        :param plain_text: str
+        :param file_text: str
         :param key: str
         :return: encrypted_text: str
         """
@@ -28,10 +29,13 @@ class VigenereCipher(Cipher):
         key = key.lower()
         index = 0
 
-        for char in plain_text:
+        for char in file_text:
             if char.isalpha():
-                shift = ord(key[index % len(key)]) - 97  # get shift amount from corresponding letter in key
-                shifted_char = chr((ord(char.lower()) + shift - 97) % 26 + 97)  # shift using modular arithmetic
+                # Get shift amount from corresponding letter in key
+                shift = ord(key[index % len(key)]) - 97
+
+                # Shift using modular arithmetic
+                shifted_char = chr((ord(char.lower()) + shift - 97) % 26 + 97)
                 ciphertext += shifted_char
                 index += 1
             else:
@@ -39,12 +43,12 @@ class VigenereCipher(Cipher):
 
         return ciphertext
 
-    def decrypt(self, text, key=""):
+    def decrypt(self, file_text, key=""):
         decrypted_text = ""
         key = key.lower()
         index = 0
 
-        for char in text:
+        for char in file_text:
             if char.isalpha():
                 shift = ord(key[index % len(key)]) - 97
                 shifted_char = chr((ord(char.lower()) - shift - 97) % 26 + 97)

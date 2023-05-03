@@ -1,6 +1,12 @@
 """
-    This file holds the Atbash Cipher child class which inherits the variables of abstract class Cipher and overrides
-    its abstract methods with the relevant implementation for the Atbash cipher.
+    Filename: atbash_cipher.py
+    This file holds the Atbash Cipher child class which inherits the variables of abstract class
+    Cipher and overrides its abstract methods encrypt() and decrypt() with the relevant
+    implementation for the Atbash cipher.
+
+    Atbash Cipher encryption steps:
+
+    Atbash Cipher decryption steps:
 
 """
 
@@ -12,7 +18,7 @@ class AtbashCipher(Cipher):
     def __init__(self):
         super().__init__()  # this invokes the parent initializer
 
-    def encrypt(self, text, key=None):
+    def encrypt(self, file_text, key=None):
         encrypted_text = ""
 
         # Lists of lower and upper case alphabet (regular order)
@@ -26,7 +32,7 @@ class AtbashCipher(Cipher):
         # Create a joined dictionary out of two other dictionaries
         combined_alphabet = {**combined_alphabet_lower, **combined_alphabet_upper}
 
-        for char in text:
+        for char in file_text:
             if char.isalpha():
                 encrypted_text += combined_alphabet[char]
             else:
@@ -34,8 +40,8 @@ class AtbashCipher(Cipher):
 
         return encrypted_text
 
-    def decrypt(self, text, key=None):
-        if not isinstance(text, str):
+    def decrypt(self, file_text, key=None):
+        if not isinstance(file_text, str):
             raise TypeError("Input message must be a string")
 
         decrypted_text = ""
@@ -50,7 +56,7 @@ class AtbashCipher(Cipher):
         # Create a joined dictionary out of two other dictionaries
         combined_alphabet = {**combined_alphabet_lower, **combined_alphabet_upper}
 
-        for letter in text:
+        for letter in file_text:
             if letter.isalpha():
                 decrypted_text += combined_alphabet[letter]
             else:
