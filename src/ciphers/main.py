@@ -1,7 +1,5 @@
 '''
-TODO:   3. Unit Testing!!!
-        4. Coverage report!! (without tests)
-        5. Check for exceptions and verifications of parameters!
+TODO:   4. Coverage report!! (without tests)
         6. Comments of all files and what they do
         7. DocString method documentation
         8. PEP8

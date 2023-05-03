@@ -39,6 +39,5 @@ class TestCaesarCipher(unittest.TestCase):
         self.assertNotEqual(CaesarCipher.decrypt(CaesarCipher(13), "Uryyb jbeyq!"), "Python 123!")
 
 
-
 if __name__ == '__main__':
     unittest.main()

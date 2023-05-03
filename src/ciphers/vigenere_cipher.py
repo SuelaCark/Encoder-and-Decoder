@@ -1,6 +1,6 @@
 """
-    This file holds the Vignere Cipher child class which inherits the variables of abstract class Cipher and overrides
-    its abstract methods with the relevant implementation for the Vignere cipher.
+    This file holds the Vigenere Cipher child class which inherits the variables of abstract class Cipher and overrides
+    its abstract methods with the relevant implementation for the Vigeneree cipher.
 
 """
 
@@ -8,7 +8,7 @@
 from src.ciphers.cipher import Cipher
 
 
-class VignereCipher(Cipher):
+class VigenereCipher(Cipher):
     """
     Simple class docstring
     """
@@ -25,13 +25,13 @@ class VignereCipher(Cipher):
         """
 
         ciphertext = ""
-        key = key.upper()
+        key = key.lower()
         index = 0
 
         for char in plain_text:
             if char.isalpha():
-                shift = ord(key[index % len(key)]) - 65  # get shift amount from corresponding letter in key
-                shifted_char = chr((ord(char.upper()) + shift - 65) % 26 + 65)  # shift using modular arithmetic
+                shift = ord(key[index % len(key)]) - 97  # get shift amount from corresponding letter in key
+                shifted_char = chr((ord(char.lower()) + shift - 97) % 26 + 97)  # shift using modular arithmetic
                 ciphertext += shifted_char
                 index += 1
             else:
@@ -41,13 +41,13 @@ class VignereCipher(Cipher):
 
     def decrypt(self, text, key=""):
         decrypted_text = ""
-        key = key.upper()
+        key = key.lower()
         index = 0
 
         for char in text:
             if char.isalpha():
-                shift = ord(key[index % len(key)]) - 65
-                shifted_char = chr((ord(char.upper()) - shift - 65) % 26 + 65)
+                shift = ord(key[index % len(key)]) - 97
+                shifted_char = chr((ord(char.lower()) - shift - 97) % 26 + 97)
                 decrypted_text += shifted_char
                 index += 1
             else:

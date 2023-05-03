@@ -5,7 +5,7 @@
 
 from src.ciphers.caesar_cipher import CaesarCipher
 from src.ciphers.atbash_cipher import AtbashCipher
-from src.ciphers.vignere_cipher import VignereCipher
+from src.ciphers.vigenere_cipher import VigenereCipher
 
 
 def process_input():
@@ -20,13 +20,14 @@ def process_input():
 
     # Write the name of the cipher the user wants to use
     while True:
-        cipher_name = input('Enter the cipher name ("caesar", "atbash", or "vignere"): ')
+        cipher_name = input('Enter the cipher name ("caesar", "atbash", or "vigenere"): ')
 
         # Defining a list of all allowed cipher classes
-        ALLOWED_CIPHERS = ["caesar", "Caesar", "CAESAR", "atbash", "Atbash", "ATBASH", "vignere", "Vignere", "VIGNERE"]
+        ALLOWED_CIPHERS = ["caesar", "Caesar", "CAESAR", "atbash", "Atbash", "ATBASH",
+                           "vigenere", "Vigenere", "VIGENERE"]
 
         if cipher_name not in ALLOWED_CIPHERS:
-            print("Please enter a valid cipher name (caesar, atbash, or vignere). Check for grammar mistakes! ")
+            print("Please enter a valid cipher name (caesar, atbash, or vigenere). Check for grammar mistakes! ")
         else:
             # Map cipher name to a cipher class and ask for the encryption/decryption key for each cipher respectively
             if cipher_name == "caesar":
@@ -53,7 +54,7 @@ def process_input():
                     if operation == "encrypt" else cipher.decrypt(input_text, key="")
                 break
 
-            elif cipher_name == "vignere":
+            elif cipher_name == "vigenere":
                 key_prompt = 'Enter the encryption key (string expected): ' \
                     if operation == "encrypt" else 'Enter the decryption key (string expected): '
 
@@ -65,30 +66,26 @@ def process_input():
                         else:
                             print("The key can only contain alphabetic characters. Please try again.")
 
-                    cipher = VignereCipher(key)
+                    cipher = VigenereCipher(key)
 
                     input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
                     output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
                         else cipher.decrypt(input_text, key)
                     break
                 except ValueError:
-                    print("Invalid input. Vignere cipher uses a string (word) as a key.")
+                    print("Invalid input. vigenere cipher uses a string (word) as a key.")
 
     if output_text.strip() == "":
         raise ValueError("Output text cannot be empty")
 
-    while True:
-        filename = input('Enter the name of the output file: ')
-        if filename.strip() == "":
-            print("File name cannot be empty. Please enter a valid filename.")
-        else:
-            break
+    filename = input('Enter the name of the output file: ')
+    if filename.strip() == "":
+        print("File name cannot be empty. Please enter a valid filename.")
 
-        try:
-            with open(filename + ".txt", 'w') as file:
-                file.write(output_text)
-                print(f"Encrypted/Decrypted message has been written to {filename}.txt.")
-            break
+    try:
+        with open(filename + ".txt", 'w') as file:
+            file.write(output_text)
+            print(f"Encrypted/Decrypted message has been written to the file: {filename}.txt.")
 
-        except FileNotFoundError:
-            print("File not found. Please enter a valid filename.")
+    except FileNotFoundError:
+        print("File not found. Please enter a valid filename.")
