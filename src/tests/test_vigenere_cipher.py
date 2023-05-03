@@ -13,10 +13,10 @@ class TestVigenereeCipher(unittest.TestCase):
         self.obj = VigenereCipher()
 
     def test_get_key(self):
-        self.assertEqual(self.obj.get_key(), 3)
+        self.assertEqual(self.obj.get_key(), "")
 
     def test_set_key(self):
-        self.assertEqual(self.obj.get_key(), 3)
+        self.assertEqual(self.obj.get_key(), "")
 
     def test_vigenere_encrypt_success(self):
         self.assertEqual(VigenereCipher.encrypt(VigenereCipher(), "Hello world!", "HI"), "omstv evzsl!")
@@ -34,9 +34,8 @@ class TestVigenereeCipher(unittest.TestCase):
         self.assertEqual(VigenereCipher.decrypt(VigenereCipher(), "yakmcglmga", "encrypt"), "university")
 
     def test_vigenere_decrypt_fail(self):
-        self.assertNotEqual(VigenereCipher.decrypt(VigenereCipher(), "Khoor zruog!"), "Hi world!")
-        self.assertNotEqual(VigenereCipher.decrypt(VigenereCipher(), "Olssv dvysk!"), "Hello people!")
-        self.assertNotEqual(VigenereCipher.decrypt(VigenereCipher(), "Uryyb jbeyq!"), "Python 123!")
+        self.assertNotEqual(VigenereCipher.decrypt(VigenereCipher(), "hello world!", "HI"), "omstv evzsl!")
+        self.assertNotEqual(VigenereCipher.decrypt(VigenereCipher(), "hallooooo", "bye"), "iypmmspms")
 
 
 if __name__ == '__main__':
