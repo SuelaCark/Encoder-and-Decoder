@@ -1,8 +1,13 @@
 # Encoder-and-Decoder
 ### Project description:
 The Encoder and Decoder project creates a program which allows the user to encrypt plain text and/or 
-decrypt encrypted text. The program encrypts and decrypts text by using Ciphers. Currently, there
-are three ciphers available: Caesar Cipher, Atbash Cipher, and Vignere Cipher. 
+decrypt encrypted text. The program encrypts and decrypts text by using different Ciphers. 
+Currently, there are three ciphers available: Caesar Cipher, Atbash Cipher, and Vignere Cipher.
+
+### The Ciphers:
+1. Caesar Cipher - 
+2. Atbash Cipher - 
+3. Vignere Cipher - 
 
 The main aims of this program are the following:
 * To help teach others about ciphers, encryption, and decryption
@@ -11,10 +16,8 @@ level of security
 * To entertain new computer scientists, teach them that coding is fun, and motivate them to learn 
 more about the real-life implementation of coding projects
 
-  
-* What my application does,
-* The challenges I faced and features I hope to implement in the future.
-### Challenges and Future features:
+### Future features:
+In the future, I intend to implement more complex ciphers such as poly
 
 
 ### Description of the problem:

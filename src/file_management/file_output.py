@@ -33,13 +33,17 @@ def process_input():
                 key_prompt = 'Enter the encryption key (integer expected): ' \
                     if operation == "encrypt" else 'Enter the decryption key (integer expected): '
 
-                key = int(input(key_prompt))
-                cipher = CaesarCipher(key)
+                try:
+                    key = int(input(key_prompt))
+                    cipher = CaesarCipher(key)
 
-                input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
-                output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
-                    else cipher.decrypt(input_text, key)
-                break
+                    input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
+
+                    output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
+                        else cipher.decrypt(input_text, key)
+                    break
+                except ValueError:
+                    print("Invalid input. Caesar cipher uses an integer key.")
 
             elif cipher_name == "atbash":   # The AtbashCipher does not need a key
                 cipher = AtbashCipher()
@@ -53,13 +57,22 @@ def process_input():
                 key_prompt = 'Enter the encryption key (string expected): ' \
                     if operation == "encrypt" else 'Enter the decryption key (string expected): '
 
-                key = input(key_prompt)
-                cipher = VignereCipher(key)
+                try:
+                    while True:
+                        key = input(key_prompt)
+                        if key.isalpha():
+                            break
+                        else:
+                            print("The key can only contain alphabetic characters. Please try again.")
 
-                input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
-                output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
-                    else cipher.decrypt(input_text, key)
-                break
+                    cipher = VignereCipher(key)
+
+                    input_text = str(input("Enter the message you would like to encrypt or decrypt: "))
+                    output_text = cipher.encrypt(input_text, key) if operation == "encrypt" \
+                        else cipher.decrypt(input_text, key)
+                    break
+                except ValueError:
+                    print("Invalid input. Vignere cipher uses a string (word) as a key.")
 
     if output_text.strip() == "":
         raise ValueError("Output text cannot be empty")
@@ -79,10 +92,3 @@ def process_input():
 
         except FileNotFoundError:
             print("File not found. Please enter a valid filename.")
-
-"""
-TODO:   1. Check if key is int or string respectively and ask again when its wrong
-
-"""
-
-
