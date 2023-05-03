@@ -12,13 +12,19 @@ level of security
 more about the real-life implementation of coding projects
 
 ### Future features:
-In the future, I intend to implement more complex ciphers such as poly
+In the future, I intend to implement:
+- More complex ciphers
+- Graphic User Interface
+- Get file input for encrypting/decrypting
 
 
-### Description of the problem:
-•	Short (one or two paragraph) description of the problem.
-
-### The solution:
+### Description of the problem and its solution:
+Cybersecurity as a field is growing to be more crucial day-by-day. Our everyday usage of online sources 
+with the security of our passwords lead to security vulnerabilities. While each password is encrypted by 
+using hash mapping and other encryption/mapping methods, sometimes the passwords can still be breakable
+due to the correlation of the password with the user's life, eg. password which holds the user's dog name.
+Hence, to prevent this direct breaking of user passwords, I decided to create a cipher encoder and decoder
+project which allows anyone to give an additional layer of security to their passwords. 
 
 
 ### Project structure:
@@ -60,11 +66,13 @@ Two abstract methods encrypt() and decrypt() which are not implemented (this wil
 implementation of the methods)
 - Child class caesar_cipher - initial constructor which class the super class constructor. The implementation of the
 encrypt() and decrypt() abstract methods from the superclass to suit the Caesar cipher. 
-- Child class atbash_cipher - 
-- Child class vigenere_cipher - 
+- Child class atbash_cipher - initial constructor which class the super class constructor. The implementation of the
+encrypt() and decrypt() abstract methods from the superclass to suit the Atbash cipher. 
+- Child class vigenere_cipher - initial constructor which class the super class constructor. The implementation of the
+encrypt() and decrypt() abstract methods from the superclass to suit the Vigenere cipher. 
 
 ### Special functions and/or algorithms used:
-### The Ciphers:
+### The Ciphers used:
 1. Caesar Cipher - is a shift cipher which encrypts the data by replacing the original letters 
 with “x” (key) number of characters ahead in the alphabet. Eg. The word "Hello world" with a key of 3
 would encrypt to "Khoor zruog". 
@@ -79,16 +87,30 @@ alphabet is changed regularly during the encryption process. The encryption key 
 into single characters and become part of the beginning rows of the alphabet matrix.
 
 ### Getting started with the program:
-•	Instructions how to start and work with the program
+First way:
+1. In the git repository click the green button (Code)
+2. Click the SSH button and copy the SSH key
+3. Create an empty folder and open it with pycharm
+4. On the pycharm, open the terminal, and write: git clone <SSH key>
+5. After the project is copied, open the folders src > ciphers > main.py (file)
+6. Run main.py
 
+Second way:
+1. In the git repository click the green button (Code)
+2. Download Zip (which downloads the whole project into your computer)
+3. Unzip the project's git folder
+4. Open the unzipped project folder in pycharm
+5. After opening the project, open the folders src > ciphers > main.py (file)
+6. Run main.py
 
 Testing commands:
-- Test unittests in terminal (either or): 
+- Test unittests in terminal (one of the following): 
   - python3 -m unittest discover -s tests -t src
   - python -m unittest discover
 - Coverage:
+  - Not include tests: coverage run --source . --omit=venv --omit=test* -m unittest discover 
   - coverage run -m unittest discover
   - coverage html
   - coverage report (same as coverage html but output in terminal)
-  - coverage run --source . --omit=venv --omit=test* -m unittest discover (does not include tests)
+
 
