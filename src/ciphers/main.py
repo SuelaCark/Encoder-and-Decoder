@@ -1,10 +1,8 @@
 '''
-TODO:   4. Coverage report!! (without tests)
-        6. Comments of all files and what they do
-        7. DocString method documentation
-        8. PEP8
-        9. README.md (include instructions on how to run the project)
-        10. Video
+TODO:   1. Comments of all files and what they do
+        2. DocString method documentation
+        3. README.md (include instructions on how to run the project)
+        4. Video
 '''
 
 from src.ciphers.caesar_cipher import CaesarCipher
