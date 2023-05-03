@@ -1,6 +1,5 @@
 '''
-TODO:   2. File writer + connect it to the ciphers
-        3. Unit Testing!!!
+TODO:   3. Unit Testing!!!
         4. Coverage report!! (without tests)
         5. Check for exceptions and verifications of parameters!
         6. Comments of all files and what they do
@@ -17,13 +16,7 @@ from src.file_management.file_output import process_input
 if __name__ == '__main__':
     print("Welcome to the Encoder and Decoder program!"
           "This program will allow you to encrypt and decrypt messages in existing files within the project directory.")
-
     process_input()
-
-    """
-        Note: To store the file names you could use either constants or configuration file ( configparser to parse it). 
-        Or you could pass them when you run the python script and use argparse for that.
-    """
 
 
     # # Testing Caesar Cipher

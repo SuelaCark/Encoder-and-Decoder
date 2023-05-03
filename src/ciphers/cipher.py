@@ -23,7 +23,3 @@ class Cipher(ABC):
     @abstractmethod
     def decrypt(self, file_text, key=""):
         raise NotImplementedError("NotImplementedError")
-
-    # @abstractmethod
-    # def write_file_output(self, file_name, result=""):
-    #     raise  NotImplementedError("NotImplementedError")

@@ -4,11 +4,6 @@ The Encoder and Decoder project creates a program which allows the user to encry
 decrypt encrypted text. The program encrypts and decrypts text by using different Ciphers. 
 Currently, there are three ciphers available: Caesar Cipher, Atbash Cipher, and Vignere Cipher.
 
-### The Ciphers:
-1. Caesar Cipher - 
-2. Atbash Cipher - 
-3. Vignere Cipher - 
-
 The main aims of this program are the following:
 * To help teach others about ciphers, encryption, and decryption
 * To encrypt and decrypt messages and/or passwords which will allow to have an additional basic 
@@ -62,11 +57,22 @@ Encoder-and-Decoder/
 └──  README.md
 ```
 
-### Class structure and  description:
-
+## Class structure and  description
+The OOP inheritance is used to create the implementation of the ciphers. The following is the inheritance structure:
+- Abstract super class Cipher - initial constructor with an optional parameter (key). Getters and setters for the key.
+Two abstract methods encrypt() and decrypt() which are not implemented (this will allow child classes to have their own 
+implementation of the methods)
+- Child class caesar_cipher - 
+- Child class atbash_cipher - 
+- Child class vignere_cipher - 
 
 ### Special functions and/or algorithms used:
-•	Description of special functions and/or algorithms used.
+### The Ciphers:
+1. Caesar Cipher - is a shift cipher which encrypts the data by replacing the original letters 
+with “x” (key) number of characters ahead in the alphabet. Eg. The word "Hello world" with a key of 3
+would encrypt to "Khoor zruog". 
+2. Atbash Cipher - 
+3. Vignere Cipher - 
 
 ### Getting started with the program:
 •	Instructions how to start and work with the program
