@@ -2,7 +2,7 @@
 ### Project description:
 The Encoder and Decoder project creates a program which allows the user to encrypt plain text and/or 
 decrypt encrypted text. The program encrypts and decrypts text by using different Ciphers. 
-Currently, there are three ciphers available: Caesar Cipher, Atbash Cipher, and Vignere Cipher.
+Currently, there are three ciphers available: Caesar Cipher, Atbash Cipher, and Vigenere Cipher.
 
 The main aims of this program are the following:
 * To help teach others about ciphers, encryption, and decryption
@@ -34,21 +34,17 @@ Encoder-and-Decoder/
 │   ├── caesar_cipher.py
 │   ├── cipher.py
 │   ├── main.py
-│   ├── vignere_cipher.py
-│   └── welcome.txt
+│   └──vigenere_cipher.py
 │ └── file_management/
 │   ├── __init__.py
-│   ├── file_output.py
-│   └── main.py
+│   └── file_output.py
 │ └── tests/
 │   ├── __init__.py
-│   ├── test_caesar_cipher.py
-│   ├── test_vignere_cipher.py
 │   ├── test_atbash_cipher.py
+│   ├── test_caesar_cipher.py
 │   ├── test_cipher.py
-│   ├── test_file_input.py
 │   ├── test_file_output.py
-│   └── test_main.py (ciphers main?)
+│   └── test_vigenere_cipher.py
 │
 │ └── .coverage
 │ └── __init__.py
@@ -65,15 +61,19 @@ implementation of the methods)
 - Child class caesar_cipher - initial constructor which class the super class constructor. The implementation of the
 encrypt() and decrypt() abstract methods from the superclass to suit the Caesar cipher. 
 - Child class atbash_cipher - 
-- Child class vignere_cipher - 
+- Child class vigenere_cipher - 
 
 ### Special functions and/or algorithms used:
 ### The Ciphers:
 1. Caesar Cipher - is a shift cipher which encrypts the data by replacing the original letters 
 with “x” (key) number of characters ahead in the alphabet. Eg. The word "Hello world" with a key of 3
 would encrypt to "Khoor zruog". 
-2. Atbash Cipher - 
-3. Vignere Cipher - 
+2. Atbash Cipher - The Atbash Cipher is a monoalphabetic substitution cipher that, in comparison 
+        to other ciphers e.g. Caesar Cipher, does not require an encryption key.
+        The Atbash Cipher maps each letter of an alphabet it to its reverse, 
+        so that the first letter (e.g. A) becomes the last letter (e.g. Z), 
+        the second letter (B) becomes the second to last letter (Y), and so on.
+3. Vigenere Cipher - 
 
 ### Getting started with the program:
 •	Instructions how to start and work with the program

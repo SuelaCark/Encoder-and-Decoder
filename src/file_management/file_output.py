@@ -8,7 +8,7 @@ from src.ciphers.atbash_cipher import AtbashCipher
 from src.ciphers.vigenere_cipher import VigenereCipher
 
 
-def process_input():
+def file_output():
     # Choose operation/action: "encrypt" or "decrypt"
     while True:
         operation = input("Do you want to encrypt or decrypt the message? (encrypt/decrypt): ")
