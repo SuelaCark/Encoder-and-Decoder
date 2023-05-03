@@ -1,3 +1,9 @@
+"""
+    Filename: test_cipher.py
+    This file holds the unittests for testing the Cipher (superclass), its constructor,
+    its encrypt() and decrypt() methods.
+"""
+
 import unittest
 from mock import patch
 from src.ciphers.cipher import Cipher

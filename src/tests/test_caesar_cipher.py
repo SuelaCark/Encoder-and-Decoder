@@ -1,3 +1,9 @@
+"""
+    Filename: test_caesar_cipher.py
+    This file holds the unittests for testing the CaesarCipher, its constructor,
+    its encrypt() and decrypt() methods.
+"""
+
 import unittest
 from src.ciphers.caesar_cipher import CaesarCipher
 

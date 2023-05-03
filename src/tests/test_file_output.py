@@ -1,3 +1,8 @@
+"""
+    Filename: test_file_output.py
+    This file holds the unittests for testing the file_output() method.
+"""
+
 import unittest
 from unittest.mock import patch
 from src.file_management.file_output import file_output

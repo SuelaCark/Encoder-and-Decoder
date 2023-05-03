@@ -1,3 +1,9 @@
+"""
+    Filename: test_atbash_cipher.py
+    This file holds the unittests for testing the AtbashCipher, its constructor,
+    its encrypt() and decrypt() methods.
+"""
+
 import unittest
 from src.ciphers.atbash_cipher import AtbashCipher
 

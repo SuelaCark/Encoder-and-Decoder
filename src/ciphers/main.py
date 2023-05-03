@@ -1,8 +1,9 @@
 """
-TODO:   1. Comments of all files and what they do
-        2. DocString method documentation
-        3. README.md (include instructions on how to run the project)
-        4. Video
+    The main method of the whole Encoder-and-Decoder program which prints a welcoming
+    message and a short description of the use of the program. The main method calls the
+    file_output() method which asks the user for input, manages and checks the user inputs,
+    directs to the respective ciphers and encrypt/decrypt method, and finally it outputs
+    the encrypted/decrypted message in the newly created file.
 """
 
 from src.file_management.file_output import file_output

@@ -1,6 +1,7 @@
 """
-    This file manages the file input file and handles it to the respective cipher for encryption
-    of the file contents
+    This file manages the user inputs and handles it to the respective cipher for encryption/decryption
+    of the file contents, checks the user input if it holds the expected value type. After all the
+    successful input from the user, the method outputs the encrypted/decrypted text in a separate file.
 """
 
 from src.ciphers.caesar_cipher import CaesarCipher
@@ -9,6 +10,14 @@ from src.ciphers.vigenere_cipher import VigenereCipher
 
 
 def file_output():
+    """
+    The file_output() method manages the user inputs and handles it to the respective
+    cipher for encryption/decryption of the file contents, checks the user input if it
+    holds the expected value type. After all the successful input from the user,
+    the method outputs the encrypted/decrypted text in a separate file.
+
+    :return: void
+    """
     # Choose operation/action: "encrypt" or "decrypt"
     while True:
         operation = input("Do you want to encrypt or decrypt the message? (encrypt/decrypt): ")
@@ -60,6 +69,7 @@ def file_output():
                 key_prompt = 'Enter the encryption key (string expected): ' \
                     if operation == "encrypt" else 'Enter the decryption key (string expected): '
 
+                # check that the key for vigenere cipher is only alphabetic [a-zA-Z]
                 try:
                     while True:
                         key = input(key_prompt)
@@ -79,10 +89,12 @@ def file_output():
     if output_text.strip() == "":
         raise ValueError("Output text cannot be empty")
 
+    # Ask and check for filename from the user
     filename = input('Enter the name of the output file: ')
     if filename.strip() == "":
         print("File name cannot be empty. Please enter a valid filename.")
 
+    # Create file and write the output_text (encrypted/decrypted text) in the file
     try:
         with open(filename + ".txt", 'w') as file:
             file.write(output_text)

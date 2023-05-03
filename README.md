@@ -73,7 +73,10 @@ would encrypt to "Khoor zruog".
         The Atbash Cipher maps each letter of an alphabet it to its reverse, 
         so that the first letter (e.g. A) becomes the last letter (e.g. Z), 
         the second letter (B) becomes the second to last letter (Y), and so on.
-3. Vigenere Cipher - 
+3. Vigenere Cipher - Vigenere Cipher is an encryption and decryption algorithm. 
+It is a type of polyalphabetic substitution cipher, which means that the cipher 
+alphabet is changed regularly during the encryption process. The encryption key word is split
+into single characters and become part of the beginning rows of the alphabet matrix.
 
 ### Getting started with the program:
 •	Instructions how to start and work with the program

@@ -1,3 +1,9 @@
+"""
+    Filename: test_vigenere_cipher.py
+    This file holds the unittests for testing the VigenereCipher, its constructor,
+    its encrypt() and decrypt() methods.
+"""
+
 import unittest
 from src.ciphers.vigenere_cipher import VigenereCipher
 

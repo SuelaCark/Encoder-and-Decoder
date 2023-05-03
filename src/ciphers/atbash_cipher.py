@@ -10,6 +10,9 @@ from src.ciphers.cipher import Cipher
 
 
 class AtbashCipher(Cipher):
+    """
+        Child class of the abstract parent class Cipher.
+    """
     def __init__(self):
         """
             Constructor of the AtbashCipher class which is a child class of the abstract class Cipher.

@@ -10,6 +10,9 @@ from src.ciphers.cipher import Cipher
 
 
 class CaesarCipher(Cipher):
+    """
+        Child class of the abstract parent class Cipher.
+    """
     def __init__(self, key=0):
         """
             Constructor of the CaesarCipher class which is a child class of the abstract class Cipher.
