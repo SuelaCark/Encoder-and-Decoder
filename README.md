@@ -87,5 +87,5 @@ Testing commands:
   - coverage run -m unittest discover
   - coverage html
   - coverage report (same as coverage html but output in terminal)
-
+  - coverage run --source . --omit=venv --omit=test* -m unittest discover (does not include tests)
 

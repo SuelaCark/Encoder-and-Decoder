@@ -1,25 +1,35 @@
-# import unittest
-#
-#
-# class MyTestCase(unittest.TestCase):
-#     def test_something(self):
-#         self.assertEqual(True, False)  # add assertion here
-#
-#
-# if __name__ == '__main__':
-#     unittest.main()
+import unittest
+from src.ciphers.atbash_cipher import AtbashCipher
 
 
-#  def setUp(self) -> None:
-#         self.cipher = Cipher()
-#
-#     # def test_abstract_methods(self):
-#     #     with self.assertRaises(TypeError):
-#     #         self.cipher.encrypt("test")
-#     #     with self.assertRaises(TypeError):
-#     #         self.cipher.decrypt("test")
-#
-#     def test_set_key_success(self):
-#         cipher = Cipher("key")
-#         cipher.set_key = "fun"
-#         self.assertEqual(cipher.name, "fun")
+class TestAtbashCipher(unittest.TestCase):
+    def setUp(self):
+        self.obj = AtbashCipher()
+
+    def test_atbash_encrypt_success(self):
+        self.assertEqual(AtbashCipher.encrypt(AtbashCipher(), "Hello world!"), "Svool dliow!")
+        self.assertEqual(AtbashCipher.encrypt(AtbashCipher(), "Python"), "Kbgslm")
+        self.assertEqual(AtbashCipher.encrypt(AtbashCipher(), "Encrypt"), "Vmxibkg")
+
+    def test_atbash_encrypt_fail(self):
+        self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Hello world!"), "Svool happy!")
+        self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Python"), "Java")
+        self.assertNotEqual(AtbashCipher.encrypt(AtbashCipher(), "Encrypt"), "Decrypt")
+    
+    def test_atbash_decrypt_success(self):
+        self.assertEqual(AtbashCipher.decrypt(AtbashCipher(), "Svool dliow!"), "Hello world!")
+        self.assertEqual(AtbashCipher.decrypt(AtbashCipher(), "Kbgslm"), "Python")
+        self.assertEqual(AtbashCipher.decrypt(AtbashCipher(), "Vmxibkg"), "Encrypt")
+
+    def test_atbash_decrypt_fail(self):
+        self.assertNotEqual(AtbashCipher.decrypt(AtbashCipher(), "Svool dliow!"), "Hello globe!")
+        self.assertNotEqual(AtbashCipher.decrypt(AtbashCipher(), "Kbgslm"), "Zdraveite")
+        self.assertNotEqual(AtbashCipher.decrypt(AtbashCipher(), "Vmxibkg"), "Flag")
+
+if __name__ == '__main__':
+    unittest.main()
+
+    # def test_set_key_success(self):
+    #     cipher = Cipher("key")
+    #     cipher.set_key = "fun"
+    #     self.assertEqual(cipher.name, "fun")
