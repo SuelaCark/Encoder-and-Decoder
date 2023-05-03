@@ -77,3 +77,15 @@ would encrypt to "Khoor zruog".
 
 ### Getting started with the program:
 •	Instructions how to start and work with the program
+
+
+Testing commands:
+- Test unittests in terminal (either or): 
+  - python3 -m unittest discover -s tests -t src
+  - python -m unittest discover
+- Coverage:
+  - coverage run -m unittest discover
+  - coverage html
+  - coverage report (same as coverage html but output in terminal)
+
+

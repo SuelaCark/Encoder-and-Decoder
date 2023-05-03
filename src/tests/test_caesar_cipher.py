@@ -1,16 +1,24 @@
 import unittest
-
 from src.ciphers.caesar_cipher import CaesarCipher
 
 
 class TestCaesarCipher(unittest.TestCase):
+    def setUp(self):
+        self.obj = CaesarCipher(3)
+        self.obj2 = CaesarCipher()
 
-    def test_caesar_encrypt(self):
+    def test_get_key(self):
+        self.assertEqual(self.obj.get_key(), 3)
+
+    def test_set_key(self):
+        self.assertEqual(self.obj.get_key(), 3)
+
+    def test_caesar_encrypt_success(self):
         self.assertEqual(CaesarCipher.encrypt(CaesarCipher(3), "Hello world!", 3), "Khoor zruog!")
         self.assertEqual(CaesarCipher.encrypt(CaesarCipher(7), "Hello world!", 7), "Olssv dvysk!")
         self.assertEqual(CaesarCipher.encrypt(CaesarCipher(13), "Hello world!", 13), "Uryyb jbeyq!")
 
-    def test_caesar_decrypt(self):
+    def test_caesar_decrypt_success(self):
         self.assertEqual(CaesarCipher.decrypt(CaesarCipher(3), "Khoor zruog!"), "Hello world!")
         self.assertEqual(CaesarCipher.decrypt(CaesarCipher(7), "Olssv dvysk!"), "Hello world!")
         self.assertEqual(CaesarCipher.decrypt(CaesarCipher(13), "Uryyb jbeyq!"), "Hello world!")
@@ -18,4 +26,3 @@ class TestCaesarCipher(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    # test_caesar_encrypt()
