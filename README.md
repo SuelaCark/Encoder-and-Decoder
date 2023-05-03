@@ -1,13 +1,21 @@
 # Encoder-and-Decoder
-* Offer general description
-Encoder and decoder project in python
+### Project description:
+The Encoder and Decoder project creates a program which allows the user to encrypt plain text and/or 
+decrypt encrypted text. The program encrypts and decrypts text by using Ciphers. Currently, there
+are three ciphers available: Caesar Cipher, Atbash Cipher, and Vignere Cipher. 
 
-* What was my motivation?
-* Why did I build this project?
+The main aims of this program are the following:
+* To help teach others about ciphers, encryption, and decryption
+* To encrypt and decrypt messages and/or passwords which will allow to have an additional basic 
+level of security
+* To entertain new computer scientists, teach them that coding is fun, and motivate them to learn 
+more about the real-life implementation of coding projects
 
+  
 * What my application does,
-* Why I used these particular technologies,
 * The challenges I faced and features I hope to implement in the future.
+### Challenges and Future features:
+
 
 ### Description of the problem:
 •	Short (one or two paragraph) description of the problem.
