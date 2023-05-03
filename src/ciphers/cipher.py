@@ -18,7 +18,7 @@ class Cipher(ABC):
 
     @abstractmethod
     def encrypt(self, file_text, key):
-        raise NotImplementedError("NotImplementedError")
+        raise NotImplemented("NotImplementedError")
 
     @abstractmethod
     def decrypt(self, file_text, key=""):
